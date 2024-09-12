@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://shmup.gd" id="1_f6fnv"]
 [ext_resource type="Texture2D" uid="uid://bsjip57n7mhrs" path="res://playerShip1_blue.png" id="2_ebxuq"]
 [ext_resource type="PackedScene" uid="uid://615dpcfm0o1e" path="res://enemy.tscn" id="3_g36bx"]
-[ext_resource type="PackedScene" uid="uid://d3g0dv5swsj60" path="res://BulletScene.tscn" id="4_yfy1q"]
+[ext_resource type="PackedScene" uid="uid://d3g0dv5swsj60" path="res://bullet.tscn" id="4_yfy1q"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="5_ekhay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cste"]
@@ -18,6 +18,7 @@ script = ExtResource("1_f6fnv")
 
 [node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_0en0n")
+bullet_resource = ExtResource("4_yfy1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(585, 574.5)

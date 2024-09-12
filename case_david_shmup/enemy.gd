@@ -16,8 +16,6 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	#if body.name == "Player" or body.name == "Bullet" or body.name == "bullet":
 	if body.name != "enemy":
 		var game_controller = get_node("/root/Node2D")
-		game_controller.CheckAndCreateBoost()
-		game_controller.incrementScore()
 		body.queue_free()
 		self.queue_free()
 	pass # Replace with function body.
