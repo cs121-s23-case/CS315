@@ -32,6 +32,7 @@ position = Vector2(586, 562)
 texture = ExtResource("2_ebxuq")
 
 [node name="enemy" parent="." instance=ExtResource("3_g36bx")]
+gravity_scale = 1.0
 
 [node name="Bullet" parent="." instance=ExtResource("4_yfy1q")]
 position = Vector2(2, 12)
