@@ -1,6 +1,5 @@
 extends Node2D
-
-@export var enemy: PackedScene
+var enemy = preload("res://enemy.tscn")
 
 var rng = RandomNumberGenerator.new()
 
@@ -19,3 +18,4 @@ func _on_timer_timeout() -> void:
 	newEnemy.scale = Vector2(1, 1)
 	newEnemy.position = Vector2(random_number_x,0)
 	print("enemy spawned at", newEnemy.position)
+	get_node("/root/Game_Controller").add_child(newEnemy)

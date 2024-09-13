@@ -1,6 +1,7 @@
 extends CharacterBody2D
-@export var bullet_offset: float = 20.0
-@export var bullet_resource: PackedScene
+@export var bullet_resource = preload("res://bullet.tscn")
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("input_left"):
 		self.position.x += -5;
@@ -10,12 +11,9 @@ func _process(_delta: float) -> void:
 		self.position.y += -5;
 	if Input.is_action_pressed("down"):
 		self.position.y += 5;
-	if Input.is_action_pressed("shoot"):
-		shoot_bullet()
-
-func shoot_bullet() -> void:
-	if bullet_resource:
-		var bullets = bullet_resource.instantiate()
-		var direction = Vector2.UP
-		bullets.global_position = global_position + direction + bullet_offset
-		get_tree().root.add_child(bullets)
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = bullet_resource.instantiate()
+		bullet.position.x = self.position.x+20
+		bullet.position.y = self.position.y
+		bullet.set_name("bullet")
+		get_node("/root/Game_Controller").add_child(bullet)
